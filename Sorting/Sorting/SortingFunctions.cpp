@@ -50,7 +50,30 @@ void SelectionSort(T (&arr)[N], bool ord)
 ** Page 
 */ 
 template<typename T, std::size_t N>
-void InsertionSort(T (&arr)[N])
+void InsertionSort(T (&arr)[N], bool ord)
 {
-	
+	if (!ord)
+		for (int i = 1; i < N; ++i)
+		{
+			int key = arr[i];
+			int j = i - 1;
+			while (j >= 0 && arr[j] > key)
+			{
+				arr[j+1] = arr[j];
+				j--;
+			}
+			arr[j+1] = key;
+		}
+	else
+		for (int i = 1; i < N; ++i)
+		{
+			int key = arr[i];
+			int j = i - 1;
+			while (j >= 0 && arr[j] < key)
+			{
+				arr[j+1] = arr[j];
+				j--;
+			}
+			arr[j+1] = key;
+		}
 }
