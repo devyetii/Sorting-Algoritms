@@ -32,5 +32,18 @@ int main()
 	SelectionSort(a, 1);
 	Print(a);
 	
+	int b[] = {1, 56, 98, 98, -124, 0};
+	cout << "Initially : ";
+	Print(b);
+
+	cout << "Applying Insertion Sort, Ascending\n";
+	InsertionSort(b, 0);
+	Print(b);
+
+	cout << "Applying Insertion Sort, Descending\n";
+	InsertionSort(b, 1);
+	Print(b);
+
+
 	system("pause");
 }
