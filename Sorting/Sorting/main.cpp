@@ -31,6 +31,7 @@ int main()
 	cout << "Applying Selection Sort, Descending\n";
 	SelectionSort(a, 1);
 	Print(a);
+	cout << '\n';
 	
 	int b[] = {1, 56, 98, 98, -124, 0};
 	cout << "Initially : ";
@@ -43,7 +44,20 @@ int main()
 	cout << "Applying Insertion Sort, Descending\n";
 	InsertionSort(b, 1);
 	Print(b);
+	cout << '\n';
+	
+	int c[] = {1, 56, 98, 98, -124, 0};
+	cout << "Initially : ";
+	Print(c);
 
+	cout << "Applying Shell Sort, Ascending\n";
+	ShellSort(c, 0);
+	Print(c);
+
+	cout << "Applying Shell Sort, Descending\n";
+	ShellSort(c, 1);
+	Print(c);
+	cout << '\n';
 
 	system("pause");
 }

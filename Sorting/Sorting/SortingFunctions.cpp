@@ -55,7 +55,7 @@ void InsertionSort(T (&arr)[N], bool ord)
 	if (!ord)
 		for (int i = 1; i < N; ++i)
 		{
-			int key = arr[i];
+			T key = arr[i];
 			int j = i - 1;
 			while (j >= 0 && arr[j] > key)
 			{
@@ -67,7 +67,7 @@ void InsertionSort(T (&arr)[N], bool ord)
 	else
 		for (int i = 1; i < N; ++i)
 		{
-			int key = arr[i];
+			T key = arr[i];
 			int j = i - 1;
 			while (j >= 0 && arr[j] < key)
 			{
@@ -75,5 +75,48 @@ void InsertionSort(T (&arr)[N], bool ord)
 				j--;
 			}
 			arr[j+1] = key;
+		}
+}
+
+
+/*
+** (Internal) : Shell Sort 
+** Order : Ascending
+** Stability: Not Stable
+** Find algorithm and explanation in the Reference Data Structures: A Pseudocode Approach Using C, 2nd ed.
+** Page 
+*/ 
+template<typename T, std::size_t N>
+void ShellSort(T (&arr)[N], bool ord)
+{
+	if (!ord)
+		for (int gap = N / 2; gap > 0; gap /= 2)
+		{
+			for (int i = gap; i < N; i++)
+			{
+				T key = arr[i];
+				int j = i;
+				while (j >= gap && arr[j - gap] > key)
+				{
+					arr[j] = arr[j - gap];
+					j -= gap;
+				}
+				arr[j] = key;
+			}
+		}
+	else
+		for (int gap = N / 2; gap > 0; gap /= 2)
+		{
+			for (int i = gap; i < N; i++)
+			{
+				T key = arr[i];
+				int j = i;
+				while (j >= gap && arr[j - gap] < key)
+				{
+					arr[j] = arr[j - gap];
+					j -= gap;
+				}
+				arr[j] = key;
+			}
 		}
 }
